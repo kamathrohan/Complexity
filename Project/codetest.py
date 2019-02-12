@@ -80,7 +80,9 @@ heightextractor(size256,cross256)
 
 
 """
-
+size512 = np.genfromtxt("5000005121.csv")
+plt.plot(size512)
+plt.show()
 
 
 

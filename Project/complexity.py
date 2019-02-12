@@ -17,7 +17,7 @@ class aval:
     def __init__(self, length):
         self.z = np.zeros(length)
         #self.zthresh = np.ones(length)
-        self.zthresh = np.random.random_integers(1,2,size = length)
+        self.zthresh = np.random.randint(1,2,size = length)
         self.crossover = False
         self.height = np.sum(self.z)
 
@@ -103,6 +103,7 @@ def avalheight(t, L):
     checker = False
     for i in range(t):
         aval1.add()
+        print(i)
         heightarray.append(aval1.height)
         if aval1.crossover == True and checker == False:
             tcross = i
@@ -110,17 +111,17 @@ def avalheight(t, L):
     return [heightarray, tcross]
 
 def smoothheight(t, L, M):
-    height1 = avalheight(t, L)[0]
-    tcross = []
+    A = avalheight(t,L)
+    height1 = A[0]
+    tcross = [A[1]]
     for i in range(M - 1):
-        print(i)
         height1 = np.add(height1, avalheight(t,L)[0])
         tcross.append(avalheight(t, L)[1])
     return ([(height1/M),np.average(tcross)])
 
-A = smoothheight(50,4,5)
+A = avalheight(1000000,1024)
 
-np.savetxt("50045.csv",A[0])
+np.savetxt("100000010241.csv",A[0])
 print(A[1])
 
 
