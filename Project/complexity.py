@@ -102,6 +102,7 @@ def avalheight(t, L):
     tcross = 0
     checker = False
     for i in range(t):
+        print(i)
         aval1.add()
         heightarray.append(aval1.height)
         if aval1.crossover == True and checker == False:
@@ -113,14 +114,13 @@ def smoothheight(t, L, M):
     height1 = avalheight(t, L)[0]
     tcross = []
     for i in range(M - 1):
-        print(i)
         height1 = np.add(height1, avalheight(t,L)[0])
         tcross.append(avalheight(t, L)[1])
     return ([(height1/M),np.average(tcross)])
 
-A = smoothheight(50,4,5)
+A = smoothheight(200000,512,3)
 
-np.savetxt("50045.csv",A[0])
+np.savetxt("2000005123.csv",A[0])
 print(A[1])
 
 

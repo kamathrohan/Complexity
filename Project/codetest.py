@@ -53,7 +53,7 @@ plt.show()
 
 """
 
-
+"""
 mean = np.average(size256[56138:])
 stddv = np.std(size256[56138:])
 zeeav = mean/256
@@ -62,6 +62,10 @@ print("Mean = ",mean)
 print("Stddv = ", stddv)
 print("<z> =", zeeav)
 print("sigmaz =", zeestddv)
+
+
+"""
+
 
 """
 plt.scatter([4,8,16,32,64,128,256],[cross04,cross08,cross16,cross32,cross64,cross128,cross256])
@@ -82,5 +86,22 @@ heightextractor(size256,cross256)
 """
 
 
+def theoreticalcross(zmean,L):
+    A = (zmean*(L**2)/2)*(1 + (1/L))
+    return A
 
 
+
+
+
+A = [4,8,16,32,64,128,256]
+
+
+B = []
+
+for i in A:
+    B.append(theoreticalcross(1.73,i))
+
+plt.scatter(A,B)
+plt.scatter(A, [cross04,cross08,cross16,cross32,cross64,cross128,cross256])
+plt.show()
