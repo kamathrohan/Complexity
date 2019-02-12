@@ -84,7 +84,9 @@ heightextractor(size256,cross256)
 
 
 """
-
+size512 = np.genfromtxt("5000005121.csv")
+plt.plot(size512)
+plt.show()
 
 def theoreticalcross(zmean,L):
     A = (zmean*(L**2)/2)*(1 + (1/L))
