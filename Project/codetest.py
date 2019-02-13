@@ -39,6 +39,7 @@ scarrx128 = np.divide(xaxis2,(128**2))
 scarr256 = np.divide(size256,256)
 scarrx256 = np.divide(xaxis2,256**2)
 
+
 """
 #plt.plot(scarrx04,scarr04)
 plt.plot(scarrx08,scarr08, label = "L = 8")

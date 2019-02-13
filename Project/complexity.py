@@ -102,15 +102,32 @@ def avalheight(t, L):
     tcross = 0
     checker = False
     for i in range(t):
-        print(i)
         aval1.add()
-        print(i)
         heightarray.append(aval1.height)
         if aval1.crossover == True and checker == False:
             tcross = i
             checker = True
     return [heightarray, tcross]
 
+
+def meanz(t, L):
+    aval1 = aval(L)
+    zarray = []
+    tcross = 0
+    checker = False
+    for i in range(t):
+        #print(i)
+        #print(L)
+        aval1.add()
+        if aval1.crossover == True:
+            for i in aval1.z:
+                zarray.append(i)
+    zmean =  np.average(zarray)
+    zstddv = np.std(zarray)
+    return [zmean,zstddv]
+    
+    
+    
 def smoothheight(t, L, M):
     A = avalheight(t,L)
     height1 = A[0]
@@ -120,14 +137,15 @@ def smoothheight(t, L, M):
         tcross.append(avalheight(t, L)[1])
     return ([(height1/M),np.average(tcross)])
 
-A = avalheight(1000000,1024)
 
-np.savetxt("100000010241.csv",A[0])
-print(A[1])
-
-
-
-
+print("L = 8", meanz(20000,8))
+print("L = 16", meanz(20000,16))
+print("L = 32", meanz(20000,32))
+print("L = 64", meanz(200000,64))
+print("L = 128", meanz(20000,128))
+print("L = 256", meanz(100000,256))
+print("L = 512", meanz(500000,512))
+print("L = 1024", meanz(1000000,1024))
 
 """
 
