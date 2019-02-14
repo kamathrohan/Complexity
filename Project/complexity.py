@@ -122,7 +122,7 @@ def meanz(t, L):
     tcross = 0
     checker = False
     for i in range(t):
-        #print(i)
+        print(i)
         #print(L)
         aval1.add()
         if aval1.crossover == True:
