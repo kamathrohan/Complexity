@@ -161,6 +161,7 @@ def avalsize(t,L):
     tcross = 0
     checker = False
     for i in range(t):
+        print(i)
         aval1.add()
     return aval1.s
 
