@@ -20,6 +20,7 @@ class aval:
         self.zthresh = np.random.randint(1,2,size = length)
         self.crossover = False
         self.height = np.sum(self.z)
+        self.s = []
 
 
     def zval(self):
@@ -39,10 +40,12 @@ class aval:
     def relax(self, p = 0.5):
         """ Frankie says grain drops if the slope is greater than the threshold slope"""
         i = 0
+        j = 0
         crossover = False
         while i < np.size(self.z):
             if self.z[i] > self.zthresh[i]:
                 self.zthresh[i] = np.random.choice([1,2],1, [p,1-p])
+                j = j + 1
                 if i == 0: #If you're on the leftmost part
                     self.z[i] = self.z[i] - 2
                     self.z[i + 1] = self.z[i + 1] + 1
@@ -59,6 +62,7 @@ class aval:
                     i = i - 1
             else:
                 i = i + 1 #done
+        self.s.append(j)
         return
 
     def checkrelax(self):
@@ -137,15 +141,32 @@ def smoothheight(t, L, M):
         tcross.append(avalheight(t, L)[1])
     return ([(height1/M),np.average(tcross)])
 
+def heightextractor(heightarray,tcross):
+    tcrossint = np.int(tcross)
+    A = heightarray[tcrossint:]
+    print(np.average(A))
+    print(np.std(A))
+    return
 
-print("L = 8", meanz(20000,8))
-print("L = 16", meanz(20000,16))
-print("L = 32", meanz(20000,32))
-print("L = 64", meanz(200000,64))
-print("L = 128", meanz(20000,128))
-print("L = 256", meanz(100000,256))
-print("L = 512", meanz(500000,512))
-print("L = 1024", meanz(1000000,1024))
+def stableheightarray(heightarray,tcross):
+    tcrossint = np.int(tcross)
+    A = heightarray[tcrossint:]
+    return A
+
+def avalsize(t,L):
+    aval1 = aval(L)
+    heightarray = []
+    tcross = 0
+    checker = False
+    for i in range(t):
+        aval1.add()
+    return aval1.s
+
+
+#A = avalheight(10000,64)
+#np.savetxt("10000641.txt",A[0])
+plt.hist(avalsize(1000,8))
+plt.show()
 
 """
 
