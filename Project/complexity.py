@@ -62,7 +62,9 @@ class aval:
                     i = i - 1
             else:
                 i = i + 1 #done
-        self.s.append(j)
+
+        if self.crossover == True:
+            self.s.append(j)
         return
 
     def checkrelax(self):
@@ -163,10 +165,6 @@ def avalsize(t,L):
     return aval1.s
 
 
-#A = avalheight(10000,64)
-#np.savetxt("10000641.txt",A[0])
-plt.hist(avalsize(1000,8))
-plt.show()
 
 """
 
