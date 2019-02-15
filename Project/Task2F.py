@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 import complexity
 import numpy as np
 
-
-complexity.heightextractor()
-
 hstd08 = 0.4302153945559708
 hstd16 = 0.5023506279317981
 hstd32 = 0.6053027376264722

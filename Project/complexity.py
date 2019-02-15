@@ -6,8 +6,7 @@ rkk216@ic.ac.uk
 """
 import numpy as np  #some obvious imports
 import matplotlib.pyplot as plt
-
-
+from progressbar import ProgressBar
 class aval:
 
     """
@@ -107,7 +106,9 @@ def avalheight(t, L):
     heightarray = []
     tcross = 0
     checker = False
-    for i in range(t):
+    pbar = ProgressBar()
+    for i in pbar(range(t)):
+        #print(i)
         aval1.add()
         heightarray.append(aval1.height)
         if aval1.crossover == True and checker == False:
@@ -165,9 +166,17 @@ def avalsize(t,L):
         aval1.add()
     return aval1.s
 
-
+A = avalheight(70000,64)
+print(A)
+#np.savetxt('700006405.csv',A[0])
 
 """
+A = smoothheight(70000,16,3)
+np.savetxt('700001605.csv',A[0])
+A = smoothheight(70000,32,3)
+np.savetxt('700003205.csv',A[0])
+
+
 
              .--.            .--.
             ( (`\\."--``--".//`) )

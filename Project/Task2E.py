@@ -3,6 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
+
+
+
 height8 = 12.966073403720461
 height16 = 26.51176771291279
 height32 = 53.86440529598425
