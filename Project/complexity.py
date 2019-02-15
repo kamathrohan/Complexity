@@ -166,8 +166,8 @@ def avalsize(t,L):
         aval1.add()
     return aval1.s
 
-A = avalheight(70000,64)
-print(A)
+#A = smoothheight(1000000,1024,5)
+#print(A)
 #np.savetxt('700006405.csv',A[0])
 
 """

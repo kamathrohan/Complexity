@@ -1,8 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.mlab as mlab
 import complexity
 import pandas as pd
-
+import math
 
 def probability(array):
     stddv = np.std(array)
@@ -24,8 +25,8 @@ size32 = np.genfromtxt("100003205.csv")
 size64 = np.genfromtxt("100006405.csv")
 size128 = np.genfromtxt("7000012805.csv")
 size256 = np.genfromtxt("7000025605.csv")
-#size512 = np.genfromtxt("5000005121.csv")
-#size1024 = np.genfromtxt("100000010241.csv")
+size512 = np.genfromtxt("5000005121.csv")
+size1024 = np.genfromtxt("100000010241.csv")
 
 
 cross04 = 16.0
@@ -45,18 +46,28 @@ stable32 = complexity.stableheightarray(size32,cross32)
 stable64 = complexity.stableheightarray(size64,cross64)
 stable128 =complexity.stableheightarray(size128,cross128)
 stable256 =complexity.stableheightarray(size256,cross256)
+stable1024 = np.genfromtxt("stableheight100000010245.csv")
+stable512 = np.genfromtxt("stableheight5000005125.csv")
 
 
+def gaussian(x, mu, sig,A):
+    return A*np.exp(-np.power(x - mu, 2.) / (2 * np.power(sig, 2.)))
 
 
-
-plt.scatter(datacollapse(stable08),probability(stable08))
-plt.scatter(datacollapse(stable16),probability(stable16))
-plt.scatter(datacollapse(stable32),probability(stable32))
-plt.scatter(datacollapse(stable64),probability(stable64))
-plt.scatter(datacollapse(stable128),probability(stable128))
-plt.scatter(datacollapse(stable256),probability(stable256))
-
+plt.scatter(datacollapse(stable08),probability(stable08),label = "L = 8")
+plt.scatter(datacollapse(stable16),probability(stable16), label = "L = 16")
+plt.scatter(datacollapse(stable32),probability(stable32), label = "L = 32")
+plt.scatter(datacollapse(stable64),probability(stable64), label = "L = 64")
+plt.scatter(datacollapse(stable128),probability(stable128), label = "L = 128")
+plt.scatter(datacollapse(stable256),probability(stable256), label = "L = 256")
+plt.scatter(datacollapse(stable512),probability(stable512), label = "L = 512")
+plt.scatter(datacollapse(stable1024),probability(stable1024), label = "L = 1024")
+plt.scatter(datacollapse(stable1024),gaussian(datacollapse(stable1024),0,1,max(probability(stable1024))), label = "Gaussian Fit")
+plt.xlabel("h - <h>/sigma")
+plt.ylabel("P(h,L)*sigma")
+plt.title("Data Collapse of Height")
+plt.legend()
+plt.grid()
 plt.show()
 """
 plt.scatter(stable16,probability(stable16))

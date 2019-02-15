@@ -19,6 +19,7 @@ zmean64 = 1.701014392895422
 zmean128 = 1.7130958601465291
 zmean256 = 1.719254132250036
 zmean512 = 1.7244838130920948
+zmean1024 = 1.7350812512093
 
 zerr08 =  0.5500053274238199
 zerr16 = 0.5251204893169296
@@ -37,7 +38,7 @@ TASK 2D
 
 """
 
-A = [8,16,32,64,128,256,512]
+A = [8,16,32,64,128,256,512,1024]
 
 
 B = []
@@ -47,7 +48,10 @@ def theoreticalcross(zmean,L):
     return A
 
 
-plt.scatter(A, [theoreticalcross(zmean08,8), theoreticalcross(zmean16,16), theoreticalcross(zmean32,32), theoreticalcross(zmean64,64),
-theoreticalcross(zmean128, 128), theoreticalcross(zmean256,256), theoreticalcross(zmean512,512)], s = 30, marker = 'x')
-plt.scatter(A, [cross08,cross16,cross32,cross64,cross128,cross256,cross512], s = 30, marker = 'x')
+plt.scatter(A, [theoreticalcross(zmean08,8)-cross08, theoreticalcross(zmean16,16)-cross16, theoreticalcross(zmean32,32)-cross32, theoreticalcross(zmean64,64)-cross64,
+theoreticalcross(zmean128, 128)-cross128, theoreticalcross(zmean256,256)-cross256, theoreticalcross(zmean512,512)-cross512,theoreticalcross(zmean1024,1024)-cross1024], s = 30, marker = 'x')
+plt.xlabel("L")
+plt.ylabel("T_predicted - T_observed")
+plt.title("Difference in theoretical and observed cross values")
+
 plt.show()
