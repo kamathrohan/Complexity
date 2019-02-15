@@ -21,10 +21,13 @@ np.savetxt('avalsize1000064.txt',A)
 A = complexity.avalsize(50000,128)
 np.savetxt('avalsize100000256.txt',A)
 
-A = complexity.avalsize(500000,512)
-np.savetxt('avalsize500000512.txt',A)
+A = complexity.avalsize(250000,256)
+np.savetxt('avalsize100000256.txt',A)
 
-A = complexity.avalsize(1000000,1024)
+A = complexity.avalsize(1000000,512)
+np.savetxt('avalsize500000512.txt',A)
+"""
+A = complexity.avalsize(1200000,1024)
 np.savetxt('avalsize10000001024.txt',A)
 
 
@@ -102,9 +105,11 @@ def probability(array):
 avalarray = [aval08,aval16,aval32,aval64,aval128,aval256,aval512,aval1024]
 lengtharrays = [8,16,32,64,128,256,512,1024]
 
+
+
 def collapse(D, tau,arrayofarrays, lengtharrays):
     for i in range(len(arrayofarrays)):
-        x, y = logbin.logbin(arrayofarrays[i], scale = 1.4)
+        x, y = logbin.logbin(arrayofarrays[i], scale = 1.3)
         for j in range(len(x)):
             y[j] = y[j]*(x[j]**tau)
         xscaled = np.divide(x,lengtharrays[i]**D)
@@ -113,5 +118,15 @@ def collapse(D, tau,arrayofarrays, lengtharrays):
     plt.show()
     return
 
+def moment(array,k):
+    A = [s**k for s in array]
+    average = np.average(A)
+    return average
 
-collapse(2.1,1.5,avalarray,lengtharrays)
+
+plt.loglog([8,16,32,64,128,256],[moment(aval08,2),moment(aval16,2),moment(aval32,2),moment(aval64,2),moment(aval128,2),moment(aval256,2)])
+plt.show()
+#collapse(2.19,1.55,avalarray,lengtharrays)
+
+
+"""
