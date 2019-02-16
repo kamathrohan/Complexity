@@ -36,15 +36,36 @@ zmean256 = 1.719254132250036
 zmean512 = 1.72448
 zmean1024 = 1.7278125
 
+
 """
 
+plt.plot(size04, label = "L = 4")
+plt.plot(size08, label = "L = 8")
+plt.plot(size16, label = "L = 16")
+plt.plot(size32, label = "L = 32")
+plt.plot(size64, label = "L = 64")
+plt.plot(size128, label = "L =128")
+plt.plot(size256, label = "L = 256")
+plt.plot(size512, label = "L = 512")
+plt.plot(size1024, label = "L = 1024")
+plt.xlabel("log(Grains (t))")
+plt.ylabel("log(Height (H))")
+plt.title("Evolution of height as a function of time for different system sizes")
+plt.legend()
+plt.grid()
+#plt.savefig("HeightVTimeloglog.png")
+plt.show()
+"""
+
+
+"""
 plt.loglog(size04, label = "L = 4")
 plt.loglog(size08, label = "L = 8")
 plt.loglog(size16, label = "L = 16")
 plt.loglog(size32, label = "L = 32")
 plt.loglog(size64, label = "L = 64")
 plt.loglog(size128, label = "L =128")
-plt.loglog(size256, label = "L = 264")
+plt.loglog(size256, label = "L = 256")
 plt.loglog(size512, label = "L = 512")
 plt.loglog(size1024, label = "L = 1024")
 plt.xlabel("log(Grains (t))")
@@ -55,12 +76,17 @@ plt.grid()
 plt.savefig("HeightVTimeloglog.png")
 plt.show()
 
+
 """
+
+
 
 """
     TASK 2C
 
 """
+
+
 """ This block of code generates 4 ranges for 4 x axes, and rescales them for system sizes"""
 xaxis1 = np.arange(10000)
 xaxis2 = np.arange(70000)
@@ -90,13 +116,14 @@ scarr1024 = np.divide(size1024,1024)
 """ This block of code plots the rescaled axis for a data collapse"""
 
 """
+
 plt.plot(scarrx04[1:],scarr04[1:], label = "L = 4")
 plt.plot(scarrx08[1:],scarr08[1:], label = "L = 8")
 plt.plot(scarrx16[1:],scarr16[1:], label = "L = 16")
 plt.plot(scarrx32[1:],scarr32[1:], label = "L = 32")
 plt.plot(scarrx64[1:],scarr64[1:], label = "L = 64")
 plt.plot(scarrx128[1:],scarr128[1:], label = "L =128")
-plt.plot(scarrx256[1:],scarr256[1:], label = "L = 264")
+plt.plot(scarrx256[1:],scarr256[1:], label = "L = 256")
 plt.plot(scarrx512[1:],scarr512[1:], label = "L = 512")
 plt.plot(scarrx1024[1:],scarr1024[1:], label = "L = 1024")
 plt.xlim([0,3])
@@ -105,9 +132,11 @@ plt.ylabel("h/L")
 plt.title("Data Collapse of height")
 plt.legend()
 plt.grid()
-#plt.savefig("datacollapse.png")
+plt.savefig("datacollapse.png")
 plt.show()
+
 """
+
 
 
 
@@ -116,13 +145,14 @@ plt.show()
 """This block of code plots the data collapse on a log log axis"""
 
 """
+
 plt.loglog(scarrx04[1:],scarr04[1:], label = "L = 4")
 plt.loglog(scarrx08[1:],scarr08[1:], label = "L = 8")
 plt.loglog(scarrx16[1:],scarr16[1:], label = "L = 16")
 plt.loglog(scarrx32[1:],scarr32[1:], label = "L = 32")
 plt.loglog(scarrx64[1:],scarr64[1:], label = "L = 64")
 plt.loglog(scarrx128[1:],scarr128[1:], label = "L =128")
-plt.loglog(scarrx256[1:],scarr256[1:], label = "L = 264")
+plt.loglog(scarrx256[1:],scarr256[1:], label = "L = 256")
 plt.loglog(scarrx512[1:],scarr512[1:], label = "L = 512")
 plt.loglog(scarrx1024[1:],scarr1024[1:], label = "L = 1024")
 plt.xlabel("t/L^2")
@@ -130,6 +160,9 @@ plt.ylabel("h/L")
 plt.title("Data Collapse of height - Log-Log")
 plt.legend()
 plt.grid()
-#plt.savefig("datacollapse-loglog.png")
+plt.savefig("datacollapse-loglog.png")
 plt.show()
+
+
 """
+
