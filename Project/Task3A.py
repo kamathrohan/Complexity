@@ -26,7 +26,7 @@ np.savetxt('avalsize100000256.txt',A)
 
 A = complexity.avalsize(1000000,512)
 np.savetxt('avalsize500000512.txt',A)
-"""
+
 A = complexity.avalsize(1200000,1024)
 np.savetxt('avalsize10000001024.txt',A)
 
@@ -92,7 +92,12 @@ def plot(scale):
 
     x, y = logbin.logbin(aval1024, scale = scale)
     plt.loglog(x,y, label = 'L = 1024')
+
+    plt.xlabel("Binned Avalanche Sizes")
+    plt.ylabel("Probability Distribution")
+    plt.title("Avalanche Sizes (s) vs Probability Distribution")
     plt.legend()
+    plt.grid()
     plt.show()
     return
 
@@ -114,19 +119,26 @@ def collapse(D, tau,arrayofarrays, lengtharrays):
             y[j] = y[j]*(x[j]**tau)
         xscaled = np.divide(x,lengtharrays[i]**D)
         plt.loglog(xscaled,y,label = 'L = %len' % float(lengtharrays[i]))
+    plt.xlabel("s/L**D")
+    plt.ylabel("P*(s**tau)")
+    plt.title("Data Collapse of Avalanche Sizes")
+    plt.grid()
     plt.legend()
     plt.show()
     return
 
-def moment(array,k):
-    A = [s**k for s in array]
-    average = np.average(A)
-    return average
+def moment(arrays,k):
+    average = []
+    for i in arrays:
+        A = [s**k for s in i]
+        average.append(np.average(A))
+    return [np.log(i) for i in average]
+
+loglength = [np.log(i) for i in lengtharrays]
+plt.scatter(loglength,moment(avalarray,4))
 
 
-plt.loglog([8,16,32,64,128,256],[moment(aval08,2),moment(aval16,2),moment(aval32,2),moment(aval64,2),moment(aval128,2),moment(aval256,2)])
 plt.show()
 #collapse(2.19,1.55,avalarray,lengtharrays)
 
 
-"""

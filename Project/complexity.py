@@ -88,12 +88,12 @@ class aval:
             heightarray[i] = heightarray[i-1] - self.z[i-1]
         return heightarray
 
-def sandpile(avalsize,grains,p = 0.5):
+def ricepile(t,L,p = 0.5):
 
-    """ Plots a bar graph of the actual sandpile"""
+    """ Plots a bar graph of the actual ricepile"""
 
-    aval1 = aval(avalsize)
-    for i in range(grains):
+    aval1 = aval(L)
+    for i in range(t):
         aval1.add(p)
         plt.bar(range(np.size(aval1.heightarray())), aval1.heightarray())
         plt.ylim(0,10)
@@ -101,7 +101,7 @@ def sandpile(avalsize,grains,p = 0.5):
     return
 
 def avalheight(t, L):
-    """ Plots the height of the array as a function of grains (or time) and crossover time"""
+    """ returns height of the array as a function of grains (or time) and crossover time"""
     aval1 = aval(L)
     heightarray = []
     tcross = 0
@@ -116,8 +116,21 @@ def avalheight(t, L):
             checker = True
     return [heightarray, tcross]
 
+def smoothheight(t, L, M):
+    """ Runs avalheight M times, and returns an average height array and an average crossover time"""
+    A = avalheight(t,L)
+    height1 = A[0]
+    tcross = [A[1]]
+    for i in range(M - 1):
+        height1 = np.add(height1, avalheight(t,L)[0])
+        tcross.append(avalheight(t, L)[1])
+    return ([(height1/M),np.average(tcross)])
+
+
+
 
 def meanz(t, L):
+    """ Returns <z>  it's standard deviation after the system reaches the stable state"""
     aval1 = aval(L)
     zarray = []
     tcross = 0
@@ -135,16 +148,11 @@ def meanz(t, L):
     
     
     
-def smoothheight(t, L, M):
-    A = avalheight(t,L)
-    height1 = A[0]
-    tcross = [A[1]]
-    for i in range(M - 1):
-        height1 = np.add(height1, avalheight(t,L)[0])
-        tcross.append(avalheight(t, L)[1])
-    return ([(height1/M),np.average(tcross)])
+
 
 def heightextractor(heightarray,tcross):
+
+    """  Returns the mean height and it's standard deviation after the system has reached the steadt state"""
     tcrossint = np.int(tcross)
     A = heightarray[tcrossint:]
     print(np.average(A))
@@ -152,11 +160,14 @@ def heightextractor(heightarray,tcross):
     return
 
 def stableheightarray(heightarray,tcross):
+    """  Returns an array of heights after the system has reached the steady state"""
     tcrossint = np.int(tcross)
     A = heightarray[tcrossint:]
     return A
 
 def avalsize(t,L):
+
+    """ Returns an array of avalanche sizes after the system has reached the steady state"""
     aval1 = aval(L)
     heightarray = []
     tcross = 0
@@ -166,17 +177,7 @@ def avalsize(t,L):
         aval1.add()
     return aval1.s
 
-#A = smoothheight(1000000,1024,5)
-#print(A)
-#np.savetxt('700006405.csv',A[0])
-
 """
-A = smoothheight(70000,16,3)
-np.savetxt('700001605.csv',A[0])
-A = smoothheight(70000,32,3)
-np.savetxt('700003205.csv',A[0])
-
-
 
              .--.            .--.
             ( (`\\."--``--".//`) )
