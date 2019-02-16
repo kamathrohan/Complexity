@@ -57,8 +57,9 @@ plt.plot(lengtharray, [heightscaling(i,popt[0],popt[1],popt[2]) for i in lengtha
 plt.xlabel("L")
 plt.ylabel("h")
 plt.title("L - M fit of Height against system size")
-plt.savefig("L-M Fit.png")
 plt.grid()
+plt.savefig("L-M Fit.png")
+
 plt.show()
 
 
