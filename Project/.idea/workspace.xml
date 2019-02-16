@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bd5e43a-cec7-4075-a270-d1259a470a9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/HeightVTimeloglog.png" beforeDir="false" afterPath="$PROJECT_DIR$/HeightVTimeloglog.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task2C.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2C.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Task2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/complexity.py" beforeDir="false" afterPath="$PROJECT_DIR$/complexity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datacollapse-loglog.png" beforeDir="false" afterPath="$PROJECT_DIR$/datacollapse-loglog.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datacollapse.png" beforeDir="false" afterPath="$PROJECT_DIR$/datacollapse.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Task2D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+            <state relative-caret-position="286">
+              <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -418,12 +412,12 @@
       <workItem from="1550265364167" duration="57000" />
       <workItem from="1550265450541" duration="2096000" />
       <workItem from="1550267574796" duration="3305000" />
-      <workItem from="1550312591161" duration="12240000" />
+      <workItem from="1550312591161" duration="12347000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87212000" />
+    <option name="totallyTimeSpent" value="87319000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -588,8 +582,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Task2D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="286">
+          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

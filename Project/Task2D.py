@@ -50,7 +50,7 @@ def theoreticalcross(zmean,L):
     #B = ((zerr*(L**2)/2)*(1 + (1/L))
     return A
 
-"""
+
 
 plt.scatter(A, [(theoreticalcross(zmean04,4)-cross04)/theoreticalcross(zerr04,4),(theoreticalcross(zmean08,8)-cross08)/theoreticalcross(zerr08,8), (theoreticalcross(zmean16,16)-cross16)/theoreticalcross(zerr16,16),
                 (theoreticalcross(zmean32,32)-cross32)/theoreticalcross(zerr32,32), (theoreticalcross(zmean64,64)-cross64)/theoreticalcross(zerr64,64),
@@ -60,8 +60,9 @@ plt.scatter(A, [(theoreticalcross(zmean04,4)-cross04)/theoreticalcross(zerr04,4)
 plt.xlabel("L")
 plt.ylabel("T_predicted - T_observed (number of standard deviations)")
 plt.title("Difference in theoretical and observed crossover values")
-plt.savefig("Task2D-theoreticalvsobserved.png")
 plt.grid()
+plt.savefig("Task2D-theoreticalvsobserved.png")
+
 
 plt.show()
 
@@ -73,6 +74,6 @@ plt.ylabel("<z>")
 plt.title("<z> vs L")
 plt.grid()
 plt.savefig("Task2D-zmean.png")
-
 plt.show()
 
+"""
