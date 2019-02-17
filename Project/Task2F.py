@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.optimize import curve_fit
+
+
 
 hstd08 = 0.4302153945559708
 hstd16 = 0.5023506279317981
@@ -9,8 +12,8 @@ hstd128 = 0.8418874506605555
 hstd256 = 1.073128838461994
 hstd512 = 1.2463902121512476
 hstd1024 = 1.4370870167462262
-
-
+L = [8,16,32,64,128,256,512,1024]
+stdarray = [hstd08,hstd16,hstd32,hstd64,hstd128,hstd256,hstd512,hstd1024]
 
 zmean08 = 1.6207591754650577
 zmean16 = 1.6569854820570493
@@ -29,17 +32,29 @@ zerr128 =  0.4855043704216542
 zerr256 = 0.47974050911754534
 zerr512 = 0.47512723835298937
 
-"""
+
+def expon(x,a,b):
+    return (a* (x**b))
+
+popt, pcov = curve_fit(expon,L, stdarray )
+
+print(popt)
+perr = np.sqrt(np.diag(pcov))
+print(perr)
 
 fig = plt.figure()
 ax = plt.gca()
-ax.scatter([8,16,32,64,128,256,512,1024],[hstd08,hstd16,hstd32,hstd64,hstd128,hstd256,hstd512,hstd1024])
+ax.scatter(L,stdarray, label = "Standard Deviation values")
+ax.plot(L, [expon(i,popt[0],popt[1]) for i in L], label = "Fit")
 ax.set_xscale('log')
 ax.set_yscale('log')
 plt.xlabel("log(L)")
 plt.ylabel("log(Std)")
 plt.title("Variation of standard deviation of height with system size")
+plt.grid()
+plt.savefig("Hstd.png")
 plt.show()
+
 
 """
 
@@ -49,4 +64,4 @@ plt.ylabel("<z>")
 plt.title("Variation of <z> with system size")
 plt.grid()
 plt.show()
-
+"""
