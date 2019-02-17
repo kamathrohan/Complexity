@@ -31,7 +31,19 @@ zerr64 = 0.49374888616642454
 zerr128 =  0.4855043704216542
 zerr256 = 0.47974050911754534
 zerr512 = 0.47512723835298937
+zerr1024 = 0.47212723835298937
 
+
+zerrarray = [zerr08,zerr16,zerr32,zerr64,zerr128,zerr256,zerr512,zerr1024]
+
+plt.scatter(L,zerrarray)
+plt.grid()
+plt.xlabel("L")
+plt.ylabel("Standard deviation of slope")
+plt.title("Standard Deviation of slope v System Size")
+plt.savefig("lvzerr.png")
+plt.show()
+"""
 
 def expon(x,a,b):
     return (a* (x**b))
@@ -57,6 +69,11 @@ plt.show()
 
 
 """
+
+
+
+"""
+
 
 plt.scatter([8,16,32,64,128,256,512,1024],[zmean08,zmean16,zmean32,zmean64,zmean128,zmean256,zmean512,zmean1024])
 plt.xlabel("L")
