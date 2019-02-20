@@ -61,6 +61,7 @@ def logbin(data, scale = 1., zeros = False):
           Array of normalised frequency counts within each bin. Bins with a
           count of 0 will not be returned.
     """
+    data = data.astype(int)
     if scale < 1:
         raise ValueError('Function requires scale >= 1.')
     count = np.bincount(data)

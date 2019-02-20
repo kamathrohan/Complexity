@@ -18,13 +18,13 @@ def datacollapse(array):
     return np.divide(movedarray,stddv)
 
 
-size04 = np.genfromtxt("100000405.csv")
-size08 = np.genfromtxt("100000805.csv")
-size16 = np.genfromtxt("100001605.csv")
-size32 = np.genfromtxt("100003205.csv")
-size64 = np.genfromtxt("100006405.csv")
-size128 = np.genfromtxt("7000012805.csv")
-size256 = np.genfromtxt("7000025605.csv")
+size04 = np.genfromtxt("1000041.csv")
+size08 = np.genfromtxt("1000081.csv")
+size16 = np.genfromtxt("10000161.csv")
+size32 = np.genfromtxt("10000321.csv")
+size64 = np.genfromtxt("70000641.csv")
+size128 = np.genfromtxt("700001281.csv")
+size256 = np.genfromtxt("700002561.csv")
 size512 = np.genfromtxt("5000005121.csv")
 size1024 = np.genfromtxt("100000010241.csv")
 
@@ -46,8 +46,8 @@ stable32 = complexity.stableheightarray(size32,cross32)
 stable64 = complexity.stableheightarray(size64,cross64)
 stable128 =complexity.stableheightarray(size128,cross128)
 stable256 =complexity.stableheightarray(size256,cross256)
-stable1024 = np.genfromtxt("stableheight100000010245.csv")
-stable512 = np.genfromtxt("stableheight5000005125.csv")
+stable1024 = complexity.stableheightarray(size512,cross512)
+stable512 =  complexity.stableheightarray(size1024,cross1024)
 
 
 def gaussian(x, mu, sig,A):
@@ -68,19 +68,27 @@ plt.ylabel("P(h,L)*sigma")
 plt.title("Data Collapse of Height")
 plt.legend()
 plt.grid()
+plt.savefig("datacollapseprobability.png")
 plt.show()
+
 """
+plt.scatter(stable04,probability(stable04))
+plt.scatter(stable08,probability(stable08))
 plt.scatter(stable16,probability(stable16))
 plt.scatter(stable32,probability(stable32))
 plt.scatter(stable64,probability(stable64))
+
+
+
 plt.scatter(stable128,probability(stable128))
 plt.scatter(stable256,probability(stable256))
+plt.scatter(stable512,probability(stable512))
+plt.scatter(stable1024,probability(stable1024))
+
+
 
 
 """
-
-
-
 
 
 

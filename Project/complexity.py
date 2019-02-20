@@ -6,7 +6,7 @@ rkk216@ic.ac.uk
 """
 import numpy as np  #some obvious imports
 import matplotlib.pyplot as plt
-from progressbar import ProgressBar
+#from progressbar import ProgressBar
 class aval:
 
     """
@@ -106,8 +106,8 @@ def avalheight(t, L):
     heightarray = []
     tcross = 0
     checker = False
-    pbar = ProgressBar()
-    for i in pbar(range(t)):
+    #pbar = ProgressBar()
+    for i in range(t):
         #print(i)
         aval1.add()
         heightarray.append(aval1.height)
@@ -147,13 +147,7 @@ def meanz(t, L):
     
     
 
-print("L = 4",meanz(10000,4))
-print("L = 8", meanz(10000,8))
-print("L = 16",meanz(10000,16))
-print("L = 32",meanz(10000,32))
-print("L=64",meanz(10000,64))
-print("L =128",meanz(50000,128))
-print("L = 256",meanz(100000,256))
+
 def heightextractor(heightarray,tcross):
 
     """  Returns the mean height and it's standard deviation after the system has reached the steadt state"""
